@@ -1,6 +1,6 @@
 # tcp-rjaka
 tcp rjaka is cool osint tool for cool mister robot hackers elliot alderson kali linux
-![image]{images/image.png}
+![image](images/image.png)
 
 ## installation
 1. clone it
