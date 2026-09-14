@@ -1,7 +1,7 @@
 #!/usr/bin/python
 """
 write by efesint in sept 2026.
-the software is released under the .
+the software is released under the GNU General Public License v3.0.
 The software is distributed without ANY warranty, and the author bears no liability whatsoever.
 """
 
