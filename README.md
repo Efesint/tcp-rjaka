@@ -7,3 +7,16 @@ tcp rjaka is cool osint tool for cool mister robot hackers elliot alderson kali 
 /_/  \___/_/          /_/|_|\___/_/ |_/_/|_/_/ |_|
 
 ~~~
+
+## installation
+1. clone it
+~~~
+git clone https://github.com/Efesint/tcp-rjaka && cd tcp-rjaka
+~~~
+2. use it
+~~~
+cd src 
+~~~
+~~~
+python main.py
+~~~
