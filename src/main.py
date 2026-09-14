@@ -1,7 +1,16 @@
+#!/usr/bin/python
+"""
+write by efesint in sept 2026.
+the software is released under the GPL license.
+The software is distributed without ANY warranty, and the author bears no liability whatsoever.
+"""
+
 import socket
 import os
 import sys
-import subprocess
+import ipaddress
+
+from concurrent.futures import ThreadPoolExecutor
 
 import time
 
@@ -12,6 +21,8 @@ art = r"""
 /_/  \___/_/          /_/|_|\___/_/ |_/_/|_/_/ |_|
 """
 
+run = True
+
 def check_con():
     try: 
         socket.create_connection(("8.8.8.8", 53), timeout=3)
@@ -19,27 +30,42 @@ def check_con():
     except OSError:
         return False
 
-os.system("clear")     
+def menu():
+    os.system("clear")     
+    print(art)
+    if check_con():
+        print("\033[32m")
+        print("[+] Internet connection is stable.")
+    else:
+        time.sleep(1)
+        print("\033[31m")
+        print("[-] No internet connection.")
+        print("[-] Exiting the program")
+        sys.exit(1)
 
-if check_con():
-   print("\033[32m")
-   print("[+] Internet connection is stable.")
-else:
-   time.sleep(1)
-   print("\033[31m")
-   print("[-] No internet connection.")
-   print("[-] Exiting the program")
-   sys.exit(1)
+    print("\033[90m")
 
-print("\033[90m")
-print(art)
+    print("What should be done?")
+    print("\u001b[31m")
 
-run = True
-print("What should be done?")
-print("\u001b[31m")
 
-print("\n[1] Scan tcp ports")
-print("[0] exit\n")
+    print("[1] scan tcp ports")
+    print("[2] test (scan your own ip)")
+    print("[0] exit\n")
+
+def scan():
+    while True:
+        print("Write the IPv4 address to scan\n")
+        ip = input()
+        try:
+            ipaddress.IPv4Address(ip)
+            break
+        except ipaddress.AddressValueError:
+            print("\nx")
+        
+    print("[x]", ip)
+    
+menu()
 
 while run == True:
     try:
@@ -48,9 +74,7 @@ while run == True:
         print("Enter the number")
         continue
     if choise == 1:
-        print("\nWrite the ip address to scan\n")
-        ip = input()
-        print("\n[x]", ip) 
+        scan()
     elif choise == 0:
-         print("exiting the programm..")
-         run = False
+        print("exiting the programm..\n")
+        run = False
