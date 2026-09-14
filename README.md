@@ -20,3 +20,6 @@ cd src
 ~~~
 python main.py
 ~~~
+
+# LICENSE 
+This product is released under the GNU General Public License v3.0
