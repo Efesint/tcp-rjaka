@@ -90,17 +90,19 @@ def get_info(ip):
 
         data = {
             'IP': response.get('query'),
-            'Provider': response.get('isp'),
             'Organization': response.get('org'),
-            'Country': response.get('country'),
+            'Provider': response.get('isp'),
             'Region Name': response.get('regionName'),
+            'Country': response.get('country'),
             'City': response.get('city'),
             'Lat': response.get('lat'),
             'Lon': response.get('lon'),
         }
 
+        print("\n\033[31m═══════════════════════════════════\033[0m")
         for k, v in data.items():
-            print("\033[31m" + str(k) + ": " + str(v) + "\033[0m")
+            print("\033[31m    " + str(k) + ": " + str(v) + "\033[0m")
+        print("\033[31m═══════════════════════════════════\033[0m\n")
 
         return data
 
