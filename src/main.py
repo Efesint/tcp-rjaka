@@ -40,7 +40,6 @@ def menu():
         print("\033[31m[-] Exiting the program\033[0m\n")
         sys.exit(1)
 
-    print("\033[31mWhat should be done?\033[0m")
     print("\033[31m[1] scan tcp ports\033[0m")
     print("\033[31m[2] get info about ip address\033[0m")
     print("\033[31m[0] exit\033[0m\n")
